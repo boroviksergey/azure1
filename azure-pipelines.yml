@@ -10,13 +10,13 @@ resources:
 
 variables:
 
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '6a620a07-a30c-4b8d-9cba-64e59f714427'
-  imageRepository: 'azure-vote-front'
-  containerRegistry: 'kubercontainer1.azurecr.io'
+ # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: 'Docker-Registry-Service-Connection-ID'
+  imageRepository: 'pythonapp'
+  containerRegistry: 'cloudorbit.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
-  imagePullSecret: 'kubercontainer1db12-auth'
+  imagePullSecret: 'Image-Pull-Secret'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -114,7 +114,8 @@ stages:
               action: deploy
               namespace: $(k8sNamespaceForPR)
               manifests: |
-                $(Pipeline.Workspace)/azure-cat-dog-vote.yaml
+                $(Pipeline.Workspace)/manifests/deployment.yml
+                $(Pipeline.Workspace)/manifests/service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
