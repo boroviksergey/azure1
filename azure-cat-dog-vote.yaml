@@ -4,20 +4,6 @@ metadata:
   name: azure-vote-back
 spec:
   replicas: 1
-- task: Kubernetes@1
-  inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Azure subscription 1(1)(899ed6f7-3d13-46c9-8704-878beffb1c0a)'
-    azureResourceGroup: 'kuber_rg'
-    kubernetesCluster: 'kubercluster'
-    command: 'apply'
-    useConfigurationFile: true
-    configuration: 'https://github.com/boroviksergey/azure1/edit/main/azure-cat-dog-vote.yaml'
-    arguments: '-f'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
-    azureSubscriptionEndpointForSecrets: 'Azure subscription 1 (899ed6f7-3d13-46c9-8704-878beffb1c0a)'
-    outputFormat: 'yaml'
   selector:
     matchLabels:
       app: azure-vote-back
