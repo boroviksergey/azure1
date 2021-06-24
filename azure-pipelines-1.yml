@@ -22,8 +22,8 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 steps: 
--bash |
-  echo '$dockerfilePath'
+ - bash |
+    echo '$dockerfilePath'
 
 stages:
 - stage: Build
@@ -48,8 +48,8 @@ stages:
       artifact: manifests
 
 steps: 
--bash |
-  echo '$dockerfilePath'
+ - bash |
+    echo '$dockerfilePath'
 
 - stage: Deploy
   displayName: Deploy stage
