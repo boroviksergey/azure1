@@ -80,6 +80,5 @@ stages:
                 $(containerRegistry)/$(imageRepository):$(tag)
 
    
-steps: 
  - bash: |
-    echo '$dockerfilePath'
+    echo '$(dockerfilePath)'
