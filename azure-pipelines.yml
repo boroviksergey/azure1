@@ -114,7 +114,8 @@ stages:
               action: deploy
               namespace: $(k8sNamespaceForPR)
               manifests: |
-                $(Pipeline.Workspace)/manifests/azure-cat-dog-vote.yaml
+                $(Pipeline.Workspace)/manifests/service.yml
+                $(Pipeline.Workspace)/azure-cat-dog-vote.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
