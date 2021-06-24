@@ -14,7 +14,7 @@ variables:
   dockerRegistryServiceConnection: '1d4954c3-a42c-43ce-ab28-be7951197a39'
   imageRepository: 'newimagecon'
   containerRegistry: 'kubercontainer1.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   #'**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'kubercontainer11065c0f8-auth'
