@@ -78,6 +78,5 @@ stages:
                 $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
-
-   
+steps:   
  - script: | echo $(dockerfilePath)
