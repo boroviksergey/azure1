@@ -12,7 +12,6 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
-- script: echo "$(dockerfile)"
 - stage: Build
   displayName: Build image
   jobs:
@@ -21,6 +20,7 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+    - script: echo "$(dockerfile)"
     - task: Docker@2
       displayName: Build an image
       inputs:
