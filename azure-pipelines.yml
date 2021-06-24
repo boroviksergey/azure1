@@ -16,7 +16,7 @@ variables:
   containerRegistry: 'cloudorbit.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
-  imagePullSecret: 'Image-Pull-Secret'
+  imagePullSecret: 'kubercontainer1db12-auth'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
