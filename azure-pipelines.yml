@@ -12,7 +12,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '6a620a07-a30c-4b8d-9cba-64e59f714427'
-  imageRepository: 'azure-vote-front'
+  imageRepository: 'microsoft/azure-vote-front'
   containerRegistry: 'kubercontainer1.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
