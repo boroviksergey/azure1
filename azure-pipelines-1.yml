@@ -32,6 +32,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+    - script: | echo $(dockerfilePath) 1
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
@@ -41,6 +42,7 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+     - script: | echo $(dockerfilePath)
 
     - upload: manifests
       artifact: manifests
@@ -79,5 +81,3 @@ stages:
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
                 
-steps:   
- - script: | echo $(dockerfilePath)
