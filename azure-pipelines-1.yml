@@ -20,7 +20,7 @@ variables:
   imagePullSecret: 'kubercontainer11065c0f8-auth'
    
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: 'microsoft/azure-vote-front'
 
 
 stages:
