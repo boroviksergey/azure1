@@ -42,7 +42,7 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-echo $dockerfilePath 1
+echo $dockerfilePath 2
     - upload: manifests
       artifact: manifests
 
