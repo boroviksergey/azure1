@@ -21,7 +21,7 @@ variables:
    
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
-echo $dockerfilePath 1
+echo '$dockerfilePath'
 
 stages:
 - stage: Build
@@ -41,7 +41,7 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-echo $dockerfilePath 2
+echo '$dockerfilePath' 
     - upload: manifests
       artifact: manifests
 
