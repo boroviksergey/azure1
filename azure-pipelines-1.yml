@@ -41,10 +41,10 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-echo '$dockerfilePath' 
+
     - upload: manifests
       artifact: manifests
-
+echo '$dockerfilePath' 
 - stage: Deploy
   displayName: Deploy stage
   dependsOn: Build
