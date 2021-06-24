@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Deployment
 metadata:
   name: azure-vote-back
@@ -36,7 +36,7 @@ spec:
   selector:
     app: azure-vote-back
 ---
-apiVersion: apps/v1
+apiVersion: v1
 kind: Deployment
 metadata:
   name: azure-vote-front
