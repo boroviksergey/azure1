@@ -15,14 +15,13 @@ variables:
   imageRepository: 'newimagecon'
   containerRegistry: 'kubercontainer1.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  echo $dockerfilePath 1
   #'**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'kubercontainer11065c0f8-auth'
-
+   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
-
+echo $dockerfilePath 1
 
 stages:
 - stage: Build
