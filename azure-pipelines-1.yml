@@ -14,7 +14,8 @@ variables:
   dockerRegistryServiceConnection: '1d4954c3-a42c-43ce-ab28-be7951197a39'
   imageRepository: 'newimagecon'
   containerRegistry: 'kubercontainer1.azurecr.io'
-  dockerfilePath: '/home/vsts/work/1/s/Dockerfile'
+  dockerfilePath: '**/Dockerfile'
+  echo $dockerfilePath 1
   #'**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'kubercontainer11065c0f8-auth'
@@ -41,7 +42,7 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-
+echo $dockerfilePath 1
     - upload: manifests
       artifact: manifests
 
