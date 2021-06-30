@@ -42,6 +42,7 @@ stages:
               script: |
                 cd $(Pipeline.Workspace)
                 cd ..
+                cd _temp
                 ls
           - task: Bash@3
             inputs:
