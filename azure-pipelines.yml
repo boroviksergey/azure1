@@ -38,14 +38,6 @@ stages:
           steps:
           - task: Bash@3
             inputs:
-              targetType: 'inline'
-              script: |
-                cd $(Pipeline.Workspace)
-                cd ..
-                cd _temp
-                cat *.sh
-          - task: Bash@3
-            inputs:
              targetType: 'inline'
              script: 'ls $(Pipeline.Workspace)'
           - task: KubernetesManifest@0
@@ -55,12 +47,20 @@ stages:
               secretName: $(imagePullSecret)
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
           - script: echo "$(Build.SourcesDirectory)" 
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                cd $(Pipeline.Workspace)
+                cd ..
+                cd _temp
+                cat *.sh
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: deploy
               manifests: 
-                $(System.DefaultWorkingDirectory)/manifests/deployment.yml
+                (Pipeline.Workspace)/**/deployment.yml
  #               manifests/deployment.yml
  #               $(Pipeline.Workspace)/manifests/service.yml
               imagePullSecrets: |
