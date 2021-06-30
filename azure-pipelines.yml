@@ -40,7 +40,7 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                cd (Pipeline.Workspace)
+                cd $(Pipeline.Workspace)
                 cd ..
                 ls
           - task: Bash@3
