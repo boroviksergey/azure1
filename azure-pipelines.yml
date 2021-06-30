@@ -36,6 +36,10 @@ stages:
       runOnce:
         deploy:
           steps:
+          - task: Bash@3
+            inputs:
+             targetType: 'inline'
+             script: 'ls $(Pipeline.Workspace)'
           - task: KubernetesManifest@0
             displayName: Create imagePullSecret
             inputs:
@@ -49,7 +53,7 @@ stages:
               action: deploy
               manifests: 
                 $(System.DefaultWorkingDirectory)/manifests/deployment.yml
- #               $(Pipeline.Workspace)/manifests/deployment.yml
+ #               manifests/deployment.yml
  #               $(Pipeline.Workspace)/manifests/service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
