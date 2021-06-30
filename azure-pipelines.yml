@@ -23,6 +23,7 @@ variables:
 
 
 stages:
+
 - stage: Deploy
   displayName: Deploy stage
 
@@ -39,8 +40,8 @@ stages:
           - task: Bash@3
             inputs:
              targetType: 'inline'
-             script: 'find / -name *.yml'
-                            
+ #            script: 'find / -name *.yml'
+             script: 'echo $(imageRepository)'               
           - task: KubernetesManifest@0
             displayName: Create imagePullSecret
             inputs:
