@@ -43,7 +43,7 @@ stages:
                 cd $(Pipeline.Workspace)
                 cd ..
                 cd _temp
-                ls
+                cat *.sh
           - task: Bash@3
             inputs:
              targetType: 'inline'
