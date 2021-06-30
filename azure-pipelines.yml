@@ -23,9 +23,19 @@ variables:
 
 
 stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    steps:
+    - upload: manifests
+      artifact: manifests
+
 
 - stage: Deploy
   displayName: Deploy stage
+  dependsOn: Build
 
   jobs:
   - deployment: Deploy
